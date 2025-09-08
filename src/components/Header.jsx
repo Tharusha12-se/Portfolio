@@ -53,6 +53,7 @@ const Header = () => {
             </nav>
 
             {/* Social icon Dekstop */}
+            <div className="md:flex hidden  items-center space-x-4"></div>
 
         </div>
     </header>

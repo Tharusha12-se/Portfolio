@@ -37,7 +37,7 @@ const ProjectSection = () => {
     {
         id: 5,
         title: "3D gaming website",
-        imageSrc: "/images/thumbnail.png", 
+        imageSrc: "/images/project-5.png", 
     },
   ]
 
@@ -154,24 +154,25 @@ const ProjectSection = () => {
         //timeline for panel
         const tl = gsap.timeline({
             scrollTrigger: {
-                trigger: panel,
+                trigger: panel, 
                 containerAnimation: horizontalScroll,
                 start: "left right",
                 end: "right left",
                 scrub: true
             }
         })
-        //image scall and opacity animation
+    })
+
+    //image scall and opacity animation
     tl.fromTo(image, {scale: 0, rotate: -20,}, {scale:1, rotate:1, duration: 0.5})
 
     //title animation if it existe
     if(imageTitle){
         tl.fromTo(imageTitle, {y:30,}, {y: -100, duration: 0.3,}, 0.2)
     }
-    })
-
     
-  }, [projectImages.length]); 
+
+  }, [projectImages.]); 
 
   return (
     <section

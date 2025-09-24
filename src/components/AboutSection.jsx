@@ -113,7 +113,7 @@ const AboutSection = () => {
           getting it done, on time, every time.
         </h3>
         <img className="lh:h-[40rem] md:h-[25rem] h-[20rem] mix-blend-lighten"
-          src="images/person.png" alt="profile-img" />
+          src="images/my-profile.1.png" alt="profile-img" />
       </div>
 
     </section>

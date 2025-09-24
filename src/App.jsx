@@ -9,6 +9,7 @@ import HeroSection from "./components/HeroSection"
 import ProjectSection from "./components/ProjectSection"
 import ContactSection from "./components/ContactSection";
 import Footer from "./components/Footer";
+import ProgessBar from "./components/ProgessBar";
 
 export default function App() {
 
@@ -34,6 +35,7 @@ export default function App() {
     <ProjectSection />
     <ContactSection />
     <Footer />
+    <ProgessBar/>
     </>
   )
 }

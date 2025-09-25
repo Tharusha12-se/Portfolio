@@ -2,8 +2,6 @@ import { useRef, useEffect } from "react"
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SlShareAlt } from "react-icons/sl";
-import { image } from "framer-motion/client";
-import { scale } from "framer-motion";
 
 const ProjectSection = () => {
   const sectionRef = useRef(null);    
@@ -12,32 +10,37 @@ const ProjectSection = () => {
   const triggerRef = useRef(null);
   const horizontalRef = useRef(null);
 
-  // Project image data 
+  // Project data with type specification
   const projectImages = [
     {
         id: 1,
-        title: "3D gaming website",
-        imageSrc: "/images/project-1.png", 
+        title: "Rawana Health Care Center",
+        imageSrc: "/images/Rawana.mp4", 
+        type: "video"
     },
     {
         id: 2,
         title: "3D gaming website",
         imageSrc: "/images/project-2.png", 
+        type: "image"
     },
     {
         id: 3,
         title: "3D gaming website",
         imageSrc: "/images/project-3.png", 
+        type: "image"
     },
     {
         id: 4,
         title: "3D gaming website",
         imageSrc: "/images/project-4.png", 
+        type: "image"
     },
     {
         id: 5,
         title: "3D gaming website",
         imageSrc: "/images/thumbnail.png", 
+        type: "image"
     },
   ]
 
@@ -85,18 +88,16 @@ const ProjectSection = () => {
       }
     );
 
-    // Section enternce animation
+    // Section entrance animation
     gsap.fromTo(
         triggerRef.current, 
         {
             y: 100,
-            rotationX: 20,
             opacity: 0,
         },
         {
             y: 0,
             opacity: 1,
-            rotationX: 0,
             duration: 1,
             ease: "power2.out",
             delay: 0.2,
@@ -108,30 +109,12 @@ const ProjectSection = () => {
         }
     )
 
-    //peralax ffect for the section
-    gsap.fromTo(
-        sectionRef.current,
-        {
-            backgroundPosition: "50% 0%",
-        },
-        {
-            backgroundPosition: "50% 100%",
-            ease: "none",
-            scrollTrigger:{
-                trigger:sectionRef.current,
-                start: "top to bottom",
-                end: "bottom to top",
-                scrub: true
-            }
-        }
-    )
-
-    // horozontal scrolling
+    // Horizontal scrolling
     const horizontalScroll = gsap.to(".panel", {
         xPercent: -100 * (projectImages.length - 1),
         ease: "none",
         scrollTrigger: {
-            trigger:triggerRef.current,
+            trigger: triggerRef.current,
             start: "top top",
             end: () => `+=${horizontalRef.current.offsetWidth}`,
             pin: true,
@@ -145,32 +128,56 @@ const ProjectSection = () => {
         }
     })
 
-    //image animation
+    // Fixed image animation - only scale and fade, no rotation
     const panels = gsap.utils.toArray(".panel")
     panels.forEach((panel, i) => {
-        const image = panel.querySelector(".project-image")
+        const mediaElement = panel.querySelector(".project-media")
         const imageTitle = panel.querySelector(".project-title")
 
-        //timeline for panel
+        // Timeline for panel
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: panel,
                 containerAnimation: horizontalScroll,
-                start: "left right",
-                end: "right left",
+                start: "left center",
+                end: "right center",
                 scrub: true
             }
         })
-        //image scall and opacity animation
-    tl.fromTo(image, {scale: 0, rotate: -20,}, {scale:1, rotate:1, duration: 0.5})
+        
+        // Fixed animation: Only scale and opacity, no rotation
+        tl.fromTo(mediaElement, 
+            {
+                scale: 0.8,
+                opacity: 0.5,
+                y: 50
+            }, 
+            {
+                scale: 1,
+                opacity: 1,
+                y: 0,
+                duration: 0.5,
+                ease: "power2.out"
+            }
+        )
 
-    //title animation if it existe
-    if(imageTitle){
-        tl.fromTo(imageTitle, {y:30,}, {y: -100, duration: 0.3,}, 0.2)
-    }
+        // Title animation
+        if(imageTitle){
+            tl.fromTo(imageTitle, 
+                {
+                    y: 30,
+                    opacity: 0
+                }, 
+                {
+                    y: 0,
+                    opacity: 1,
+                    duration: 0.3
+                }, 
+                0.2
+            )
+        }
     })
 
-    
   }, [projectImages.length]); 
 
   return (
@@ -185,29 +192,43 @@ const ProjectSection = () => {
         </h2>
         <div 
           ref={titleLineRef}
-          className="h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto opacity-0"
+          className="h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto w-0 opacity-0"
         >
         </div>
       </div>
 
-      {/* Horizontal section */}
-      <div ref={triggerRef} className="overflow-hidden opacity-0" >
-        <div ref={horizontalRef} className="horizontal-section md:w-[400%] flex w-[420%]"> 
+      {/* Horizontal section - Shifted to right with left margin */}
+      <div ref={triggerRef} className="overflow-hidden opacity-0 h-screen flex items-center ml-8 md:ml-16 lg:ml-24" >
+        <div ref={horizontalRef} className="horizontal-section md:w-[400%] flex w-[420%] h-full"> 
           {projectImages.map((project) => (
             <div 
               key={project.id}
-              className="panel relative flex items-center justify-center "
+              className="panel relative flex items-center justify-center w-full h-full"
             >
-              <div className="relative w-full h-full flex flex-col items-center justify-center p-4 sm:p-8 md:p-12">
-                <img 
-                  src={project.imageSrc} 
-                  alt={project.title}
-                  className="project-image max-w-full max-h-full rounded-2xl object-cover"
-                />
-                  <h2 className="project-title flex items-center gap-3 md:text-3xl text-sm md:font-bold
-                  text-black mt-6 z-50 text-nowrap hover:text-gray-400 transition-colors duration-300 cursor-pointer">
-                    {project.title} <SlShareAlt/>
-                  </h2>
+              <div className="relative w-full h-full flex flex-col items-center justify-center p-4">
+                {/* Conditional rendering for video vs image - Smaller size */}
+                {project.type === "video" ? (
+                  <video 
+                    className="project-media w-[85vw] h-[65vh] max-w-5xl rounded-2xl object-cover shadow-2xl"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                  >
+                    <source src={project.imageSrc} type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                ) : (
+                  <img 
+                    src={project.imageSrc} 
+                    alt={project.title}
+                    className="project-media w-[85vw] h-[65vh] max-w-5xl rounded-2xl object-cover shadow-2xl"
+                  />
+                )}
+                
+                <h2 className="project-title flex items-center gap-3 text-xl md:text-3xl font-bold text-black mt-6 z-50 hover:text-gray-600 transition-colors duration-300 cursor-pointer">
+                  {project.title} <SlShareAlt className="text-purple-500"/>
+                </h2>
               </div>
             </div>
           ))}

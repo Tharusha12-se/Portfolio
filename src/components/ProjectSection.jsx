@@ -10,37 +10,56 @@ const ProjectSection = () => {
   const triggerRef = useRef(null);
   const horizontalRef = useRef(null);
 
-  // Project data with type specification
+  // Project data with technologies
   const projectImages = [
     {
         id: 1,
         title: "Rawana Health Care Center",
         imageSrc: "/images/Rawana.mp4", 
-        type: "video"
+        type: "video",
+        technologies: ["Java Swing", "Java", "MySQL"]
     },
     {
         id: 2,
-        title: "3D gaming website",
+        title: "Event Lanka",
         imageSrc: "/images/project-2.png", 
-        type: "image"
+        type: "image",
+        technologies: ["Java", "Firebase", "SqlLite"]
     },
     {
         id: 3,
-        title: "3D gaming website",
+        title: "Christ E-Commerce Site",
         imageSrc: "/images/project-3.png", 
-        type: "image"
+        type: "image",
+        technologies: ["Html", "Css", "JavaScript", "Boostrap", "Java", "MySQL"]
     },
     {
         id: 4,
-        title: "3D gaming website",
+        title: "Chat Room",
         imageSrc: "/images/project-4.png", 
-        type: "image"
+        type: "image",
+        technologies: ["React-Native","Java" ,"MySQL"]
     },
     {
         id: 5,
-        title: "3D gaming website",
+        title: "Employee Management System",
         imageSrc: "/images/thumbnail.png", 
-        type: "image"
+        type: "image",
+        technologies: ["React.js", "Boostrap", "Node.js", "Express.js", "MySQL"]
+    },
+     {
+        id: 6,
+        title: "Book Store Management System",
+        imageSrc: "/images/thumbnail.png", 
+        type: "image",
+        technologies: ["React.js", "Css", "Node.js","Express.js", "MongoDB"]
+    },
+    {
+        id: 7,
+        title: "MyPortfolio Website",
+        imageSrc: "/images/thumbnail.png", 
+        type: "image",
+        technologies: ["React.js", "Tailwind Css", "Spline"]
     },
   ]
 
@@ -128,11 +147,12 @@ const ProjectSection = () => {
         }
     })
 
-    // Fixed image animation - only scale and fade, no rotation
+    // Fixed image animation - including technologies
     const panels = gsap.utils.toArray(".panel")
     panels.forEach((panel, i) => {
         const mediaElement = panel.querySelector(".project-media")
         const imageTitle = panel.querySelector(".project-title")
+        const technologiesElement = panel.querySelector(".project-technologies")
 
         // Timeline for panel
         const tl = gsap.timeline({
@@ -145,7 +165,7 @@ const ProjectSection = () => {
             }
         })
         
-        // Fixed animation: Only scale and opacity, no rotation
+        // Media animation
         tl.fromTo(mediaElement, 
             {
                 scale: 0.8,
@@ -176,9 +196,60 @@ const ProjectSection = () => {
                 0.2
             )
         }
+
+        // Technologies animation
+        if(technologiesElement){
+            tl.fromTo(technologiesElement, 
+                {
+                    y: 20,
+                    opacity: 0
+                }, 
+                {
+                    y: 0,
+                    opacity: 1,
+                    duration: 0.4
+                }, 
+                0.3
+            )
+        }
     })
 
   }, [projectImages.length]); 
+
+  // Fixed Technology color mapping for your specific technologies
+  const getTechColor = (tech) => {
+    const colorMap = {
+      // Java Technologies
+      'Java': 'bg-red-500',
+      'Java Swing': 'bg-red-600',
+      
+      // Database Technologies
+      'MySQL': 'bg-blue-600',
+      'SqlLite': 'bg-blue-500',
+      'MongoDB': 'bg-green-500',
+      
+      // Frontend Technologies
+      'Html': 'bg-orange-500',
+      'Css': 'bg-blue-400',
+      'JavaScript': 'bg-yellow-500',
+      'Boostrap': 'bg-purple-600',
+      'React.js': 'bg-cyan-500',
+      'React-Native': 'bg-blue-300',
+      'Tailwind Css': 'bg-teal-500',
+      
+      // Backend Technologies
+      'Node.js': 'bg-green-600',
+      'Express.js': 'bg-gray-600',
+      
+      // Cloud & Services
+      'Firebase': 'bg-yellow-600',
+      
+      // 3D & Graphics
+      'Spline': 'bg-purple-500',
+    };
+    
+    return colorMap[tech] || 'bg-gray-600';
+  };
 
   return (
     <section
@@ -188,7 +259,7 @@ const ProjectSection = () => {
     >
       <div className="container mx-auto px-4 mb-16 relative z-10">
         <h2 ref={titleRef} className="text-4xl md:text-5xl lg:text-6xl font-bold text-black text-center mb-4 opacity-0">
-          Feature Project
+          My Projects
         </h2>
         <div 
           ref={titleLineRef}
@@ -197,16 +268,16 @@ const ProjectSection = () => {
         </div>
       </div>
 
-      {/* Horizontal section - Shifted to right with left margin */}
+      {/* Horizontal section - Updated width for 7 projects */}
       <div ref={triggerRef} className="overflow-hidden opacity-0 h-screen flex items-center ml-8 md:ml-16 lg:ml-24" >
-        <div ref={horizontalRef} className="horizontal-section md:w-[400%] flex w-[420%] h-full"> 
+        <div ref={horizontalRef} className="horizontal-section md:w-[700%] flex w-[720%] h-full"> 
           {projectImages.map((project) => (
             <div 
               key={project.id}
               className="panel relative flex items-center justify-center w-full h-full"
             >
               <div className="relative w-full h-full flex flex-col items-center justify-center p-4">
-                {/* Conditional rendering for video vs image - Smaller size */}
+                {/* Project Media */}
                 {project.type === "video" ? (
                   <video 
                     className="project-media w-[85vw] h-[65vh] max-w-5xl rounded-2xl object-cover shadow-2xl"
@@ -226,9 +297,33 @@ const ProjectSection = () => {
                   />
                 )}
                 
-                <h2 className="project-title flex items-center gap-3 text-xl md:text-3xl font-bold text-black mt-6 z-50 hover:text-gray-600 transition-colors duration-300 cursor-pointer">
-                  {project.title} <SlShareAlt className="text-purple-500"/>
-                </h2>
+                {/* Project Content Container */}
+                <div className="project-content mt-6 text-center">
+                  {/* Project Title */}
+                  <h2 className="project-title text-2xl md:text-4xl font-bold text-black mb-4 hover:text-gray-600 transition-colors duration-300 cursor-pointer">
+                    {project.title}
+                  </h2>
+
+                  {/* Technologies Used - Stacked layout like reference image */}
+                  <div className="project-technologies flex flex-col gap-3 items-center">
+                    <div className="flex flex-wrap gap-2 justify-center">
+                      {project.technologies.map((tech, index) => (
+                        <span 
+                          key={index}
+                          className={`px-4 py-2 rounded-lg text-sm md:text-base font-semibold text-white ${getTechColor(tech)} border border-white/20 shadow-lg`}
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                    
+                    {/* Share Icon positioned to the right */}
+                    <div className="flex items-center gap-3 mt-2">
+                      <span className="text-gray-600 text-sm">View Project</span>
+                      <SlShareAlt className="text-purple-500 text-xl" />
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           ))}

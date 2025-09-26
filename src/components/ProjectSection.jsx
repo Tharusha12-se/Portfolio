@@ -69,7 +69,7 @@ const ProjectSection = () => {
     {
         id: 7,
         title: "MyPortfolio Website",
-        imageSrc: "/images/thumbnail.png", 
+        imageSrc: "/images/portfolioo.png", 
         type: "image",
         technologies: ["React.js", "Tailwind Css", "Spline"],
         description: "Modern portfolio website with 3D animations and responsive design",

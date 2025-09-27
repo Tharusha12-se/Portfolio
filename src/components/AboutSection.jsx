@@ -1,5 +1,5 @@
-import { useRef, useEffect } from "react"
-import { gsap } from "gsap"
+import React, { useRef, useEffect } from "react";
+import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const AboutSection = () => {
@@ -57,13 +57,12 @@ const AboutSection = () => {
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top bottom",
-          end: "bottom top", // Fixed the typo
+          end: "bottom top",
           scrub: speed,
         }
       });
     });
 
-    // Cleanup function
     return () => {
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     };
@@ -98,22 +97,43 @@ const AboutSection = () => {
       </div>
 
       <div className="container mx-auto px-4 h-full flex flex-col items-center justify-center">
-        <h1 ref={titleRef} className="text-4xl md:text-6xl font-bold sm:mb-16 text-center text-white opacity-0">
+        <h1 ref={titleRef} className="text-4xl md:text-6xl font-bold mb-20 text-center text-white opacity-0">
           About Me
         </h1>
       </div>
 
       <div ref={introRef}
-        className="absolute lg:bottom-[-15rem] md:bottom-[-10rem] bottom-[-20rem] left-0 w-full flex md:flex-row 
-        flex-col justify-between lg:px-24 px-5 items-center opacity-0">
-        <h3 className="text-sm md:text-2xl font-bold text-purple-200 z-50 lg:max-w-[45rem] max-w-[27rem]
-          tracking-wider md:mt-20 sm:mt-[-42rem] mt-[-32rem]"> 
-          I deliver robust, production-ready websites and web apps with speed and precision.
-          Every project is backed by clean code, clear communication, and a commitment to
-          getting it done, on time, every time.
-        </h3>
-        <img className="lh:h-[40rem] md:h-[25rem] h-[20rem] mix-blend-lighten"
-          src="images/my-profile.1.png" alt="profile-img" />
+        className="absolute lg:bottom-[-12rem] md:bottom-[-10rem] bottom-[-20rem] left-0 w-full flex md:flex-row 
+        flex-col justify-center lg:px-24 px-5 items-center opacity-0">
+        
+        {/* Image on left with controlled spacing */}
+        <div className="md:w-2/5 flex justify-center mb-8  md:mb-0 md:pr-12 lg:pr-16"> {/* Added padding-right */}
+          <img 
+            className="h-[25rem] md:h-[30rem] lg:mt-5 lg:h-[35rem] mix-blend-lighten object-contain" 
+            src="images/profile_img.png" 
+            alt="profile-img" 
+          />
+        </div>
+
+        {/* Content on right with controlled spacing */}
+        <div className="md:w-3/5 md:pl-8 lg:pl-12 lg:mt-20 max-w-2xl"> {/* Added padding-left and max-width */}
+          <h3 className="text-base md:text-xl lg:text-2xl font-bold text-purple-200 z-50 tracking-wider mb-6 leading-relaxed">
+            Hey there! I'm <span className="text-purple-400">Tharusha Siriwardhana</span>, a passionate and driven 
+            undergraduate pursuing a BSc (Hons) in Software Engineering at IIC University.
+          </h3>
+          
+          <h3 className="text-base md:text-xl lg:text-2xl font-bold text-purple-200 z-50 tracking-wider mb-6 leading-relaxed">
+            My passion lies in transforming innovative ideas into scalable, user-centric applications that make 
+            a real impact. Whether it's building robust web platforms, creating seamless mobile experiences, or 
+            developing efficient database solutions.
+          </h3>
+
+          <h3 className="text-base md:text-xl lg:text-2xl font-bold text-purple-200 z-50 tracking-wider leading-relaxed">
+            With hands-on experience across multiple projects and a strong foundation in software engineering 
+            principles, I'm always excited to collaborate on challenging projects.
+          </h3>
+        </div>
+        
       </div>
 
     </section>

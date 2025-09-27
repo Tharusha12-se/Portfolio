@@ -10,6 +10,7 @@ import ProjectSection from "./components/ProjectSection"
 import ContactSection from "./components/ContactSection";
 import Footer from "./components/Footer";
 import ProgessBar from "./components/ProgessBar";
+import Skill from "./components/Skill";
 
 export default function App() {
 
@@ -32,6 +33,7 @@ export default function App() {
     <HeroSection />
     <CustomCursor/>
     <AboutSection />
+    <Skill />
     <ProjectSection />
     <ContactSection />
     <Footer />

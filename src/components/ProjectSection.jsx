@@ -19,7 +19,7 @@ const ProjectSection = () => {
         type: "video",
         technologies: ["Java Swing", "Java", "MySQL"],
         description: "Healthcare management system with patient records and appointment scheduling",
-        link: "#"
+        link: "https://github.com/NiumalAtTCG/Ravana-Health-Care-Center.git"
     },
     {
         id: 2,
@@ -28,7 +28,7 @@ const ProjectSection = () => {
         type: "image",
         technologies: ["Java", "Firebase", "SqlLite"],
         description: "Event management platform for organizing and discovering local events",
-        link: "#"
+        link: "https://github.com/Tharusha12-se/EventLanka.git"
     },
     {
         id: 3,
@@ -37,7 +37,7 @@ const ProjectSection = () => {
         type: "image",
         technologies: ["Html", "Css", "JavaScript", "Boostrap", "Java", "MySQL"],
         description: "Full-stack e-commerce platform with secure payment integration",
-        link: "#"
+        link: "https://github.com/Tharusha12-se/christ.git"
     },
     {
         id: 4,
@@ -46,7 +46,7 @@ const ProjectSection = () => {
         type: "image",
         technologies: ["React-Native","Java" ,"MySQL"],
         description: "Real-time chat application with mobile-first design",
-        link: "#"
+        link: "https://github.com/Tharusha12-se/chat_room.git"
     },
     {
         id: 5,
@@ -55,7 +55,7 @@ const ProjectSection = () => {
         type: "image",
         technologies: ["React.js", "Boostrap", "Node.js", "Express.js", "MySQL"],
         description: "HR management system with employee tracking and performance analytics",
-        link: "#"
+        link: "https://github.com/Tharusha12-se/Employ-MS.git"
     },
      {
         id: 6,
@@ -64,7 +64,7 @@ const ProjectSection = () => {
         type: "image",
         technologies: ["React.js", "Css", "Node.js","Express.js", "MongoDB"],
         description: "Inventory management system for bookstores with sales analytics",
-        link: "#"
+        link: "https://github.com/Tharusha12-se/Book-Store-MS.git"
     },
     {
         id: 7,
@@ -73,7 +73,7 @@ const ProjectSection = () => {
         type: "image",
         technologies: ["React.js", "Tailwind Css", "Spline"],
         description: "Modern portfolio website with 3D animations and responsive design",
-        link: "#"
+        link: "https://github.com/Tharusha12-se/Portfolio.git"
     },
   ]
 

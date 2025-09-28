@@ -7,7 +7,7 @@ const Footer = () => {
 
                 <h2 className='text-3xl font-bold bg-gradient-to-r from-purple-400 to-purple-200
                 bg-clip-text text-transparent'>
-                    Tharusha Siriwardhana
+                    Tharusha 
                 </h2>
 
                 <div>
@@ -15,15 +15,12 @@ const Footer = () => {
                         Connect
                     </h3>
                     <div className='flex space-x-4'>
-                        <a className="text-gray-700 hover:text-violet-400 transition-colors " href="#">
-                            <FiTwitter className="w-5 h-5" />
-                        </a>
-
-                        <a className="text-gray-700 hover:text-violet-400 transition-colors " href="#">
+                       
+                        <a className="text-gray-700 hover:text-violet-400 transition-colors " href="https://www.linkedin.com/in/shehan-tharuusha-858a122a9/">
                             <FiLinkedin className="w-5 h-5" />
                         </a>
 
-                        <a className="text-gray-700 hover:text-violet-400 transition-colors " href="#">
+                        <a className="text-gray-700 hover:text-violet-400 transition-colors " href="https://github.com/Tharusha12-se">
                             <FiGithub className="w-5 h-5" />
                         </a>
 
@@ -34,7 +31,7 @@ const Footer = () => {
 
             <div className="border-t border-gray-700 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
                 <p className="text-gray-500 text-sm">
-                    @  2025 Portfolio. All rights reserved
+                    @  2025 Tharusha. All rights reserved
                 </p>
 
                 <div className="flex space-x-6 mt-4 md:mt-0">

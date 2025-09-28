@@ -16,12 +16,12 @@ const AboutSection = () => {
       titleRef.current, 
       { y: 100, opacity: 0 },
       {
-        y: -300,
+        y: 0,
         opacity: 1,
         duration: 0.8,
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "top 40%",
+          start: "top 80%",
           toggleActions: "play none none reverse",
         }
       }
@@ -30,19 +30,19 @@ const AboutSection = () => {
     // Intro animation
     gsap.fromTo(
       introRef.current,
-      {y:100, opacity: 0, filter: "blur(10px)" },
+      { y: 100, opacity: 0, filter: "blur(10px)" },
       {
-        y: -400,
-        opacity:1,
-        filter : "blur(0px)",
+        y: 0,
+        opacity: 1,
+        filter: "blur(0px)",
         duration: 1.5,
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "top 40%",
+          start: "top 80%",
           toggleActions: "play none none reverse",
         }
       }
-    )
+    );
 
     // Star animation
     starRef.current.forEach((star, index) => {
@@ -75,7 +75,7 @@ const AboutSection = () => {
   }
 
   return (
-    <section ref={sectionRef} className="h-screen relative overflow-hidden bg-gradient-to-b from-black to-[#9a74cf50]">
+    <section ref={sectionRef} className="min-h-screen relative overflow-hidden bg-gradient-to-b from-black to-[#9a74cf50] py-8 md:py-16">
       
       <div className="absolute inset-0 overflow-hidden">
         {/* Stars */}
@@ -96,39 +96,39 @@ const AboutSection = () => {
         ))}
       </div>
 
-      <div className="container mx-auto px-4 h-full flex flex-col items-center justify-center">
-        <h1 ref={titleRef} className="text-4xl md:text-6xl font-bold mb-20 text-center text-white opacity-0">
+      <div className="container mx-auto mt-5 px-4 md:px-8 lg:px-24 h-full flex flex-col items-center justify-center">
+        <h1 ref={titleRef} className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-8 md:mb-16 text-center text-white">
           About Me
         </h1>
       </div>
 
       <div ref={introRef}
-        className="absolute lg:bottom-[-12rem] md:bottom-[-10rem] bottom-[-20rem] left-0 w-full flex md:flex-row 
-        flex-col justify-center lg:px-24 px-5 items-center opacity-0">
+        className="relative container mx-auto px-4 md:px-8 lg:px-24 flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12"
+      >
         
         {/* Image on left with controlled spacing */}
-        <div className="md:w-2/5 flex justify-center mb-8  md:mb-0 md:pr-12 lg:pr-16"> {/* Added padding-right */}
+        <div className="w-full md:w-2/5 flex justify-center mb-6 md:mb-0">
           <img 
-            className="h-[25rem] md:h-[30rem] lg:mt-5 lg:h-[35rem] mix-blend-lighten object-contain" 
+            className="h-[20rem] sm:h-[25rem] md:h-[30rem] lg:h-[35rem] object-contain mix-blend-lighten" 
             src="images/profile_img.png" 
             alt="profile-img" 
           />
         </div>
 
         {/* Content on right with controlled spacing */}
-        <div className="md:w-3/5 md:pl-8 lg:pl-12 lg:mt-20 max-w-2xl"> {/* Added padding-left and max-width */}
-          <h3 className="text-base md:text-xl lg:text-2xl font-bold text-purple-200 z-50 tracking-wider mb-6 leading-relaxed">
+        <div className="w-full md:w-3/5 text-center md:text-left max-w-xl lg:max-w-2xl">
+          <h3 className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold text-purple-200 tracking-wider mb-4 leading-relaxed">
             Hey there! I'm <span className="text-purple-400">Tharusha Siriwardhana</span>, a passionate and driven 
             undergraduate pursuing a BSc (Hons) in Software Engineering at IIC University.
           </h3>
           
-          <h3 className="text-base md:text-xl lg:text-2xl font-bold text-purple-200 z-50 tracking-wider mb-6 leading-relaxed">
+          <h3 className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold text-purple-200 tracking-wider mb-4 leading-relaxed">
             My passion lies in transforming innovative ideas into scalable, user-centric applications that make 
             a real impact. Whether it's building robust web platforms, creating seamless mobile experiences, or 
             developing efficient database solutions.
           </h3>
 
-          <h3 className="text-base md:text-xl lg:text-2xl font-bold text-purple-200 z-50 tracking-wider leading-relaxed">
+          <h3 className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold text-purple-200 tracking-wider leading-relaxed">
             With hands-on experience across multiple projects and a strong foundation in software engineering 
             principles, I'm always excited to collaborate on challenging projects.
           </h3>

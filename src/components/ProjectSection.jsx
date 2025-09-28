@@ -421,22 +421,7 @@ const ProjectSection = () => {
         </div>
       </div>
 
-      {/* Navigation Dots */}
-      <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-30 flex gap-3 bg-black/30 backdrop-blur-lg rounded-full px-4 py-3 border border-gray-700/50">
-        {projectImages.map((_, index) => (
-          <button
-            key={index}
-            className="w-3 h-3 rounded-full bg-gray-600 hover:bg-purple-500 transition-all duration-300 hover:scale-125 focus:outline-none focus:ring-2 focus:ring-purple-400"
-            onClick={() => scrollToProject(index)}
-            aria-label={`Go to project ${index + 1}`}
-          />
-        ))}
-      </div>
-
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-20 text-gray-400 text-sm animate-bounce">
-        ← Scroll horizontally →
-      </div>
+     
 
       {/* Custom CSS for floating animation */}
       <style jsx>{`

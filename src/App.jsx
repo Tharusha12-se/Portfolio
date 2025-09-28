@@ -11,7 +11,7 @@ import ContactSection from "./components/ContactSection";
 import Footer from "./components/Footer";
 import ProgessBar from "./components/ProgessBar";
 import Skill from "./components/Skill";
-//asasas
+//aaa
 
 export default function App() {
 

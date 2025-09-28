@@ -109,8 +109,8 @@ const HeroSection = () => {
                     <button
                         onClick={() => {
                             const link = document.createElement("a");
-                            link.href = "https://niumalattcg.github.io/my-portfolio/assets/Niumal.pdf";
-                            link.download = "Niumal.pdf";
+                            link.href = "";
+                            link.download = "Tharusha.pdf";
                             link.click();
                         }}
                         className="mt-6 w-full md:w-auto px-20 py-4 lg:mt-20  rounded-xl bg-gradient-to-r from-gray-400 to-gray-100 text-violet-700 font-bold hover:from-violet-600 hover:to-purple-700 hover:text-white transition-all duration-500"

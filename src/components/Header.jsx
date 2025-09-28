@@ -109,7 +109,7 @@ const Header = () => {
                         TS
                     </div>
                     <span className="text-xl font-bold bg-gradient-to-r from-gray-300 to-gray-100 bg-clip-text text-transparent">
-                        Portfolio
+                        Tharusha Siriwardhana
                     </span>
                 </motion.div>
 
@@ -128,22 +128,13 @@ const Header = () => {
                         <FiLinkedin className="w-5 h-5" />
                     </motion.a>
 
-                    <motion.a
-                        initial={{ opacity: 0, scale: 0.5 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: 1.3, duration: 0.8 }}
-                        href="https://twitter.com/your-profile" 
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-gray-300 hover:text-violet-400 transition-colors duration-300">
-                        <FiTwitter className="w-5 h-5" />
-                    </motion.a>
+                   
 
                     <motion.a
                         initial={{ opacity: 0, scale: 0.5 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ delay: 1.3, duration: 0.8 }}
-                        href="https://github.com/your-profile" 
+                        href="https://github.com/Tharusha12-se" 
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-gray-300 hover:text-violet-400 transition-colors duration-300">

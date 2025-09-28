@@ -109,7 +109,7 @@ const HeroSection = () => {
                     <button
                         onClick={() => {
                             const link = document.createElement("a");
-                            link.href = "https://github.com/Tharusha12-se/Portfolio/tree/main/public/Tharusha.pdf";
+                            link.href = "https://tharusha12-se.github.io/Portfolio/public/Tharusha.pdf";
                             link.download = "Tharusha.pdf";
                             link.click();
                         }}
